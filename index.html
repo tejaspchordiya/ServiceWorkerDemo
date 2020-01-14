@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Service Worker Demo</title>
     <script>
         if ( "serviceWorker" in navigator ) {
-            navigator.serviceWorker.register( "js/sw.js" )
+            navigator.serviceWorker.register( "./sw.js" )
                 .then( function( serviceWorker ) {
                     console.log( "Service Worker registered: " + serviceWorker );
                 } )
@@ -19,6 +19,6 @@
     </script>
 </head>
 <body>
-    Service Worker Demo
+    Hello World!
 </body>
 </html>

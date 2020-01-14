@@ -1,15 +1,28 @@
-//define( function( require ) {
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = [
+    '/',
+    '/lib/require.js',
+    '/lib/jquery-1.9.1.js',
+    '/lib/underscore.js'
+];
 
 // Here, this means window
 this.addEventListener( 'install', function( event ) {
-    console.log( 'Service Worker installing.' );
+    // Perform install steps
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(function(cache) {
+                console.log('Opened cache');
+                return cache.addAll(urlsToCache);
+            })
+    );
 } );
 
 this.addEventListener( 'activate', function( event ) {
     console.log( 'Service Worker activating.' );
 } );
 
-this.addEventListener( 'fetch', function( event ) {
+/*this.addEventListener( 'fetch', function( event ) {
 
     //console.log( window );
     console.log( " Service worker :: Inside fetch " + event );
@@ -44,6 +57,4 @@ this.addEventListener( 'fetch', function( event ) {
                 );
             } )
     );
-} );
-
-//} );
+} );*/
