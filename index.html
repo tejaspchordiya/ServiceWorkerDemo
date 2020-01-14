@@ -17,11 +17,22 @@
             console.log( "Service Worker is not supported." );
         }
     </script>
-    <script src="lib/jquery-1.9.1.js"></script>
+    <script>
+        $( document ).ready(function() {
+            console.log( "ready!" );
+        });
+    </script>
+    <!-- <script src="lib/jquery-1.9.1.js"></script>
     <script src="lib/require.js"></script>
-    <script src="lib/underscore.js"></script>
+    <script src="lib/underscore.js"></script> -->
+    <script src="lib/Application.js"></script>
 </head>
 <body>
-    Hello World!
+    <div>
+        <h2>Login</h2>
+        <div style='float:left'>Username</div>
+        <input id='usernameTextBox' type='text' style='margin-left:15px;'/>
+        <button id='okButton' style='margin-left:10px;'>OK</button>
+    </div>
 </body>
 </html>
