@@ -1,38 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Service Worker Demo</title>
-    <script>
-        if ( "serviceWorker" in navigator ) {
-            navigator.serviceWorker.register( "./sw.js" )
-                .then( function( serviceWorker ) {
-                    console.log( "Service Worker registered: " + serviceWorker );
-                } )
-                .catch( function( error ) {
-                    console.log( "Error registering the Service Worker: " + error );
-                } );
-        }
-        else {
-            console.log( "Service Worker is not supported." );
-        }
-    </script>
-    <script>
-        $( document ).ready(function() {
-            console.log( "ready!" );
-        });
-    </script>
-    <!-- <script src="lib/jquery-1.9.1.js"></script>
-    <script src="lib/require.js"></script>
-    <script src="lib/underscore.js"></script> -->
-    <script src="js/Application.js"></script>
-</head>
-<body>
-    <div>
-        <h2>Login</h2>
-        <div style='float:left'>Username</div>
-        <input id='usernameTextBox' type='text' style='margin-left:15px;'/>
-        <button id='okButton' style='margin-left:10px;'>OK</button>
-    </div>
-</body>
-</html>
+An image will appear here in 3 seconds:
+<script>
+    navigator.serviceWorker.register( '/sw.js' )
+        .then( reg => console.log( 'SW registered!', reg ) )
+        .catch( err => console.log( 'Boo!', err ) );
+
+    setTimeout( () => {
+        const img = new Image();
+        img.src = '/dog.svg';
+        document.body.appendChild( img );
+    }, 3000 );
+</script>
