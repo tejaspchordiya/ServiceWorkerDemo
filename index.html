@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        if ( "serviceWorker" in navigator ) {
+            navigator.serviceWorker.register( "js/sw.js" )
+                .then( function( serviceWorker ) {
+                    console.log( "Service Worker registered: " + serviceWorker );
+                } )
+                .catch( function( error ) {
+                    console.log( "Error registering the Service Worker: " + error );
+                } );
+        }
+        else {
+            console.log( "Service Worker is not supported." );
+        }
+    </script>
 </head>
 <body>
     Service Worker Demo
